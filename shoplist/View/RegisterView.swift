@@ -16,6 +16,7 @@ struct RegisterView: View {
                 Text("Welcome to family")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .foregroundColor(Color("yellow"))
                     .hLeading()
                 Text("Be part of our \ncommunity.")
                     .font(.title)
@@ -67,7 +68,7 @@ struct RegisterView: View {
                 Text("Sign up")
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity,minHeight: 50, maxHeight: 60)
-                    .background(.black)
+                    .background(Color("yellow"))
                     .cornerRadius(20, antialiased: true)
                     .foregroundColor(.white)
 

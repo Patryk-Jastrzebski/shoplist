@@ -22,6 +22,7 @@ struct LoginView: View {
                 Text("Let's sing you in.")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .foregroundColor(Color("yellow"))
                     .hLeading()
                 Text("Welcome back.")
                     .font(.title)
@@ -33,9 +34,6 @@ struct LoginView: View {
             }
             .padding(.top, -40)
             .padding(.leading, 20)
-            
-            
-            
             Spacer()
                 .frame(minHeight: 0, maxHeight: 50)
             TextField(
@@ -114,7 +112,7 @@ struct LoginView: View {
                 Text("Sign in")
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity,minHeight: 50, maxHeight: 60)
-                    .background(.black)
+                    .background(.yellow)
                     .cornerRadius(20, antialiased: true)
                     .foregroundColor(.white)
                     
