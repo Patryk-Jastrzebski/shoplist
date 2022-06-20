@@ -14,27 +14,34 @@ struct HomeView: View {
     @AppStorage("use_face_email") var faceIDEmail: String = ""
     @AppStorage("use_face_password") var faceIDPassword: String = ""
     
+    @State private var title = ""
+    @State private var subtitle = ""
+    
     @State var selectedTab = "house"
     var body: some View {
         ZStack {
-            
+            VStack {
+                AppNavBarView(title: title)
+                Spacer()
+            }
             if selectedTab == "house" {
-                Text("Główna")
+                Text("test")
+                    .task {title = "List."}
             }
             else if selectedTab == "person" {
                 Text("Profil")
+                    .task {title = "Profile."}
             }
             else if selectedTab == "gearshape" {
                 SettingsView()
+                    .task {title = "Settings."}
             }
-            
-            ZStack(alignment: .bottom, content: {
-                Color.black.opacity(0.05)
-                    .ignoresSafeArea()
+            VStack {
+                Spacer()
                 TabBar(selectedTab: $selectedTab)
-            }).zIndex(-1)
-            
+            }
         }
+        
         //        VStack {
         //            Button("Logout") {
         //                try? Auth.auth().signOut()

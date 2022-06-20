@@ -16,7 +16,7 @@ struct SettingsView: View {
     @AppStorage("use_face_password") var faceIDPassword: String = ""
     var body: some View {
         VStack {
-            Button("Logout") {
+                        Button("Logout") {
                 try? Auth.auth().signOut()
                 logStatus = false
             }
@@ -28,7 +28,6 @@ struct SettingsView: View {
                 }
             }
         }
-        
     }
 }
 

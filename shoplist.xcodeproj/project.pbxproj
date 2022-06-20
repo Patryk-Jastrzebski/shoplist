@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E336AB9284CC35300106802 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E336AB8284CC35300106802 /* GoogleService-Info.plist */; };
 		5E336ABB284CC63D00106802 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E336ABA284CC63D00106802 /* RegisterView.swift */; };
+		5E35824C28609CFC00B6C55A /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35824B28609CFB00B6C55A /* AppNavBarView.swift */; };
 		5E5CD73D285BD86A0021604A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD73C285BD86A0021604A /* TabBar.swift */; };
 		5E5CD73F285BE1ED0021604A /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD73E285BE1ED0021604A /* TabCurve.swift */; };
 		5E5CD742285BE8CF0021604A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD741285BE8CF0021604A /* SettingsView.swift */; };
@@ -23,6 +24,8 @@
 		5E61B911284A4E4400797C92 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E61B910284A4E4400797C92 /* FirebaseAuth */; };
 		5E61B913284A4E4400797C92 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E61B912284A4E4400797C92 /* FirebaseDatabase */; };
 		5E61B915284A4E4400797C92 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E61B914284A4E4400797C92 /* FirebaseDatabaseSwift */; };
+		5E82A320285FD1FF000386D0 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82A31F285FD1FF000386D0 /* ListViewModel.swift */; };
+		5E82A323285FD28C000386D0 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82A322285FD28C000386D0 /* ListRowView.swift */; };
 		5EDD096B28512D66000C736F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD096A28512D66000C736F /* LoginViewModel.swift */; };
 		5EDD096E285135DB000C736F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD096D285135DB000C736F /* HomeView.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +50,7 @@
 /* Begin PBXFileReference section */
 		5E336AB8284CC35300106802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E336ABA284CC63D00106802 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		5E35824B28609CFB00B6C55A /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
 		5E5CD73C285BD86A0021604A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5E5CD73E285BE1ED0021604A /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 		5E5CD741285BE8CF0021604A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		5E61B8F9284A3E5A00797C92 /* shoplistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoplistUITests.swift; sourceTree = "<group>"; };
 		5E61B8FB284A3E5A00797C92 /* shoplistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoplistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5E61B909284A49B800797C92 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5E82A31F285FD1FF000386D0 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		5E82A322285FD28C000386D0 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		5EDD096A28512D66000C736F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5EDD096D285135DB000C736F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +104,7 @@
 			children = (
 				5E5CD73C285BD86A0021604A /* TabBar.swift */,
 				5E5CD73E285BE1ED0021604A /* TabCurve.swift */,
+				5E35824B28609CFB00B6C55A /* AppNavBarView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 		5E61B908284A497F00797C92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E82A321285FD270000386D0 /* RowView */,
 				5E5CD740285BE89B0021604A /* LoggedInViews */,
 				5E61B909284A49B800797C92 /* LoginView.swift */,
 				5E336ABA284CC63D00106802 /* RegisterView.swift */,
@@ -186,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDD096A28512D66000C736F /* LoginViewModel.swift */,
+				5E82A31F285FD1FF000386D0 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +204,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5E82A321285FD270000386D0 /* RowView */ = {
+			isa = PBXGroup;
+			children = (
+				5E82A322285FD28C000386D0 /* ListRowView.swift */,
+			);
+			path = RowView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,12 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E82A320285FD1FF000386D0 /* ListViewModel.swift in Sources */,
 				5E61B90A284A49B800797C92 /* LoginView.swift in Sources */,
 				5E5CD73F285BE1ED0021604A /* TabCurve.swift in Sources */,
 				5E336ABB284CC63D00106802 /* RegisterView.swift in Sources */,
 				5E5CD742285BE8CF0021604A /* SettingsView.swift in Sources */,
 				5E61B8E1284A3E5400797C92 /* ContentView.swift in Sources */,
 				5EDD096E285135DB000C736F /* HomeView.swift in Sources */,
+				5E82A323285FD28C000386D0 /* ListRowView.swift in Sources */,
+				5E35824C28609CFC00B6C55A /* AppNavBarView.swift in Sources */,
 				5EDD096B28512D66000C736F /* LoginViewModel.swift in Sources */,
 				5E61B8DF284A3E5400797C92 /* shoplistApp.swift in Sources */,
 				5E5CD73D285BD86A0021604A /* TabBar.swift in Sources */,
