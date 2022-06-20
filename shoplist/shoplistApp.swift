@@ -15,7 +15,7 @@ struct shoplistApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(ListViewModel())
         }
     }
 }

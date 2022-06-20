@@ -15,27 +15,32 @@ struct HomeView: View {
     @AppStorage("use_face_password") var faceIDPassword: String = ""
     
     @State private var title = ""
-    @State private var subtitle = ""
-    
     @State var selectedTab = "house"
+    @State private var productName = ""
+    
+    @StateObject private var viewModel = ListViewModel()
+    
     var body: some View {
         ZStack {
             VStack {
                 AppNavBarView(title: title)
                 Spacer()
+                if selectedTab == "house" {
+                    ListView()
+                        .task {title = "List."}
+                    
+                }
+                else if selectedTab == "person" {
+                    Text("Profil")
+                        .task {title = "Profile."}
+                }
+                else if selectedTab == "gearshape" {
+                    SettingsView()
+                        .task {title = "Settings."}
+                }
             }
-            if selectedTab == "house" {
-                Text("test")
-                    .task {title = "List."}
-            }
-            else if selectedTab == "person" {
-                Text("Profil")
-                    .task {title = "Profile."}
-            }
-            else if selectedTab == "gearshape" {
-                SettingsView()
-                    .task {title = "Settings."}
-            }
+            
+            
             VStack {
                 Spacer()
                 TabBar(selectedTab: $selectedTab)
