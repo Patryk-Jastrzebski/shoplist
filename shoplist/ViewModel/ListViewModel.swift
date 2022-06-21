@@ -27,16 +27,16 @@ class ListViewModel: ObservableObject {
             }
             self.products = children.compactMap { snapshot in
                 return try? snapshot.data(as: Product.self)
-            }
+            } 
         }
     }
     
-    func addProduct(product_name: String, price_value: Double) {
+    func addProduct(product_name: String, price_value: Double, quantity_value: String, bought: Bool) {
         let userID: String? = Auth.auth().currentUser?.uid
         guard let autoId = ref.child(dbPath).child(userID!).childByAutoId().key else {
             return
         }
-        let product = Product(id: autoId, name: product_name, price: price_value)
+        let product = Product(id: autoId, name: product_name, price: price_value, quantity: quantity_value, bought: bought)
         
         do {
             try ref.child("\(dbPath)/\(userID!)/\(product.id)")
@@ -44,5 +44,16 @@ class ListViewModel: ObservableObject {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    func remove(id: String) {
+        let userID: String? = Auth.auth().currentUser?.uid
+        ref.child("\(dbPath)/\(userID!)/\(id)").setValue(nil)
+    }
+    func update(id: String, bought: Bool) {
+        let userID: String? = Auth.auth().currentUser?.uid
+        ref.child("\(dbPath)/\(userID!)/\(id)")
+            .updateChildValues([
+                "bought": bought
+            ])
     }
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @State var passwordOne: String = ""
+    @StateObject var viewModel: LoginViewModel = LoginViewModel()
     var body: some View {
         VStack {
             VStack {
@@ -28,8 +28,8 @@ struct RegisterView: View {
             Spacer()
                 .frame(minHeight: -20, maxHeight: 50)
             TextField(
-                    "E-mail",
-                    text: $username
+                "E-mail",
+                text: $viewModel.email
             )
                 .padding()
                 .background {
@@ -41,7 +41,7 @@ struct RegisterView: View {
                 .padding()
             SecureField(
                 "Password",
-                text: $password)
+                text: $viewModel.password)
                 .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 8)
@@ -53,7 +53,7 @@ struct RegisterView: View {
                 .padding(.top, -10)
             SecureField(
                 "Re-type password",
-                text: $password)
+                text: $passwordOne)
                 .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 8)
@@ -64,15 +64,26 @@ struct RegisterView: View {
                 .padding()
                 .padding(.top, -10)
             Spacer()
-            Button(action: {}, label: {
+            Button{
+                Task {
+                    do {
+                        try await viewModel.signUp()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            } label: {
                 Text("Sign up")
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity,minHeight: 50, maxHeight: 60)
                     .background(Color("yellow"))
                     .cornerRadius(20, antialiased: true)
                     .foregroundColor(.white)
-
-            }).padding()
+                
+            }
+                    .disabled(viewModel.email == "" || viewModel.password != passwordOne || viewModel.password == "")
+                    .opacity(viewModel.email == "" || viewModel.password != passwordOne || viewModel.password == "" ? 0.5 : 1)
+                .padding()
         }
     }
 }

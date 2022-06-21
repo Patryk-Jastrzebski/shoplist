@@ -17,49 +17,49 @@ struct HomeView: View {
     @State private var title = ""
     @State var selectedTab = "house"
     @State private var productName = ""
+    @State private var addView: Bool = false
     
     @StateObject private var viewModel = ListViewModel()
     
     var body: some View {
         ZStack {
             VStack {
-                AppNavBarView(title: title)
-                Spacer()
+                AppNavBarView(title: title, page: selectedTab, button: AnyView(addButton))
+                
                 if selectedTab == "house" {
+                    Spacer()
                     ListView()
-                        .task {title = "List."}
-                    
+                        .onAppear {title = "Shop list"}
                 }
                 else if selectedTab == "person" {
-                    Text("Profil")
-                        .task {title = "Profile."}
+                    ProfileView()
+                        .padding(.top, -23)
+                        .onAppear {title = "Profile"}
                 }
                 else if selectedTab == "gearshape" {
                     SettingsView()
-                        .task {title = "Settings."}
+                        .padding(.top, -23)
+                        .onAppear {title = "Settings"}
+                    
                 }
             }
-            
-            
             VStack {
                 Spacer()
                 TabBar(selectedTab: $selectedTab)
             }
-        }
+        }.sheet(isPresented: $addView, content: {AddProductView()})
         
-        //        VStack {
-        //            Button("Logout") {
-        //                try? Auth.auth().signOut()
-        //                logStatus = false
-        //            }
-        //            if useFaceID {
-        //                Button("Disable Face ID") {
-        //                    useFaceID = false
-        //                    faceIDEmail = ""
-        //                    faceIDPassword = ""
-        //                }
-        //            }
-        //       }
+    }
+    private var addButton: some View {
+        Button(action: {addView.toggle()}, label: {
+            ZStack {
+                Circle()
+                    .fill(.black)
+                    .frame(width: 30, height: 30)
+                Image(systemName: "plus")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }.padding()})
     }
 }
 

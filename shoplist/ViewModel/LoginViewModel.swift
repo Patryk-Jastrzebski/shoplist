@@ -33,6 +33,15 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func signUp() async throws {
+            let _ = try await Auth.auth().createUser(withEmail: email, password: password)
+            do {
+                try await signIn(useFaceID: false)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    
     func getBiometricStatus() -> Bool  {
         let scanner = LAContext()
         return scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)

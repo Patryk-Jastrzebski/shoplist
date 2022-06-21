@@ -17,27 +17,29 @@ struct ListRowView: View {
         VStack(alignment: .leading) {
             HStack {
                 Button(action: {}, label: {
-                    Image(systemName: "circle")
+                    Image(systemName: product.bought ? "checkmark.circle" : "circle")
                         .font(.system(size: 20.0, weight: .medium, design: .rounded))
+                        .foregroundColor(product.bought == false ? .blue : .green)
                 })
                 VStack(alignment: .leading) {
                     HStack {
                         Text(product.name)
                         Text("|")
-                        Text("500g").foregroundColor(.secondary)
+                        Text(product.quantity).foregroundColor(.secondary)
                     }.font(.system(size: 14.0, weight: .medium, design: .rounded))
                         .padding(.bottom, 1)
-                    Text("\(product.price, specifier: "%.2f") PLN")
+                    Text("\(product.price, specifier: "%.2f") zł")
                         .font(.system(size:12.0, weight: .bold, design: .rounded))
                 }
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                }, label: {
                     Image(systemName: "trash.circle.fill")
                         .font(.system(size: 26.0, weight: .bold, design: .rounded))
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.black.opacity(0.2))
                 })
             }
-        }
+        }.transition(.move(edge: .trailing))
     }
     //    var body: some View {
     //        VStack(alignment: .leading) {

@@ -10,55 +10,61 @@ import SwiftUI
 struct AppNavBarView: View {
     
     let title: String
-   //let subtitle: String?
+    let page: String
+    let button: AnyView
+    //let subtitle: String?
     
     var body: some View {
         ZStack {
             HStack {
-                titleSection.zIndex(1)
-                Spacer().zIndex(1)
-            Image("vegetables")
-                    
-                    .resizable()
-                    
-                    .foregroundColor(.white)
-                    .aspectRatio(contentMode: .fit)
-                    .position(x: 60, y: 45)
-                    .clipped(antialiased: true)
-                    .frame(width: 130, height: 60, alignment: .center)
-                    .padding(.bottom, -8.0)
+                titleSection
+                Spacer()
+                if page == "house" {
+                    button
+                }
             }
-            
-            
+            .foregroundColor(.black)
+            .font(.headline)
+            .background(
+                Color("yellow").ignoresSafeArea(edges: .top)
+            )
         }
-        .accentColor(.white)
-        .foregroundColor(.black)
-        .font(.headline)
-        .background(
-            Color("yellow").ignoresSafeArea(edges: .top)
-        )
     }
 }
 
-struct AppNavBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            AppNavBarView(title: "Home")
-            Spacer()
-        }
-        
-    }
-}
+//struct AppNavBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack {
+//            AppNavBarView(title: "Home", page: "house", add: )
+//            Spacer()
+//        }
+//
+//    }
+//}
 
 extension AppNavBarView {
     private var titleSection: some View {
         HStack(spacing: 0) {
             ZStack {
-            Text(title)
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding()
+                Text(title)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .padding(.leading, 10)
+                    .padding(.bottom, 20)
             }
         }
     }
+    private var addButton: some View {
+        HStack(spacing: 0) {
+            ZStack {
+                Circle()
+                    .fill(.black)
+                    .frame(width: 30, height: 30)
+                Image(systemName: "plus")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }
+        }.padding()
+    }
 }
+
