@@ -10,7 +10,7 @@
 		5E328C122861DC4E003C3C57 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328C112861DC4E003C3C57 /* AddProductView.swift */; };
 		5E336AB9284CC35300106802 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E336AB8284CC35300106802 /* GoogleService-Info.plist */; };
 		5E336ABB284CC63D00106802 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E336ABA284CC63D00106802 /* RegisterView.swift */; };
-		5E35824C28609CFC00B6C55A /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35824B28609CFB00B6C55A /* AppNavBarView.swift */; };
+		5E35824C28609CFC00B6C55A /* AppNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35824B28609CFB00B6C55A /* AppNavBar.swift */; };
 		5E5CD73D285BD86A0021604A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD73C285BD86A0021604A /* TabBar.swift */; };
 		5E5CD73F285BE1ED0021604A /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD73E285BE1ED0021604A /* TabCurve.swift */; };
 		5E5CD742285BE8CF0021604A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CD741285BE8CF0021604A /* SettingsView.swift */; };
@@ -55,7 +55,7 @@
 		5E328C112861DC4E003C3C57 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		5E336AB8284CC35300106802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E336ABA284CC63D00106802 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		5E35824B28609CFB00B6C55A /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
+		5E35824B28609CFB00B6C55A /* AppNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBar.swift; sourceTree = "<group>"; };
 		5E5CD73C285BD86A0021604A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5E5CD73E285BE1ED0021604A /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 		5E5CD741285BE8CF0021604A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			children = (
 				5E5CD73C285BD86A0021604A /* TabBar.swift */,
 				5E5CD73E285BE1ED0021604A /* TabCurve.swift */,
-				5E35824B28609CFB00B6C55A /* AppNavBarView.swift */,
+				5E35824B28609CFB00B6C55A /* AppNavBar.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 				5E80C8922862374E001331AA /* ProfileView.swift in Sources */,
 				5E82A323285FD28C000386D0 /* ListRowView.swift in Sources */,
 				5E328C122861DC4E003C3C57 /* AddProductView.swift in Sources */,
-				5E35824C28609CFC00B6C55A /* AppNavBarView.swift in Sources */,
+				5E35824C28609CFC00B6C55A /* AppNavBar.swift in Sources */,
 				5EDD096B28512D66000C736F /* LoginViewModel.swift in Sources */,
 				5E61B8DF284A3E5400797C92 /* shoplistApp.swift in Sources */,
 				5E5CD73D285BD86A0021604A /* TabBar.swift in Sources */,

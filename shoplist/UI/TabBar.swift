@@ -1,9 +1,4 @@
-//
-//  TabBar.swift
-//  shoplist
-//
-//  Created by Patryk Jastrzębski on 16/06/2022.
-//
+
 
 import SwiftUI
 import Firebase

@@ -1,9 +1,3 @@
-//
-//  HomeView.swift
-//  shoplist
-//
-//  Created by Patryk Jastrzębski on 08/06/2022.
-//
 
 import SwiftUI
 import Firebase
@@ -25,7 +19,6 @@ struct HomeView: View {
         ZStack {
             VStack {
                 AppNavBarView(title: title, page: selectedTab, button: AnyView(addButton))
-                
                 if selectedTab == "house" {
                     Spacer()
                     ListView()
