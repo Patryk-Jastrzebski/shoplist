@@ -4,7 +4,6 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel: LoginViewModel = LoginViewModel()
-
     @State var useFaceID: Bool = false
     
     var body: some View {
@@ -89,6 +88,14 @@ struct LoginView: View {
                     }
                 }
                 .padding(20)
+            }
+            
+            VStack {
+                Text("🥳")
+                    .font(.system(size: 50))
+                    .hLeading()
+             
+                
             }
             Spacer()
             HStack {

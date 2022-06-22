@@ -23,7 +23,7 @@ struct ListView: View {
                     selection: $selection,
                     label: Text("picker"),
                     content: {
-                        ForEach(filterOptions.indices) {index in
+                        ForEach(filterOptions.indices) { index in
                             Text(filterOptions[index])
                                 .tag(filterOptions[index])
                         }
@@ -32,7 +32,6 @@ struct ListView: View {
                     .padding()
                 HStack {
                     Text("All products")
-                    Text("(\(viewModel.products.count))").fontWeight(.semibold)
                     Spacer()
                     Text("Price: \(finalPrice(), specifier: "%.2f") PLN")
                         .fontWeight(.medium)
