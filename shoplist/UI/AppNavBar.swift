@@ -2,16 +2,6 @@
 
 import SwiftUI
 
-struct test: View {
-    
-    let test: String
-    
-    var body: some View {
-        Text(test)
-    }
-}
-
-
 struct AppNavBarView: View {
     
     let title: String

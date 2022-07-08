@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import Firebase
 
@@ -8,8 +6,6 @@ struct ProfileView: View {
     @EnvironmentObject private var viewModel: ListViewModel
     
     var body: some View {
-        Spacer()
-            .frame(minHeight: 20, maxHeight: 30)
         Form {
             Section(header: Text("Profile")) {
                 VStack {

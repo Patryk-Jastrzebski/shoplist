@@ -1,9 +1,6 @@
-
-
 import SwiftUI
 
 struct TabCurve: Shape {
-    
     var tabPoint: CGFloat
     
     var animatableData: CGFloat {

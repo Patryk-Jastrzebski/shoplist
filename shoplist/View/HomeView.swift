@@ -9,46 +9,35 @@ struct HomeView: View {
     @AppStorage("use_face_password") var faceIDPassword: String = ""
     
     @State private var title = ""
-    @State var selectedTab = "house"
     @State private var productName = ""
     @State private var addView: Bool = false
     
     @StateObject private var viewModel = ListViewModel()
     
     var body: some View {
-        ZStack {
-            VStack {
-                AppNavBarView(title: title, page: selectedTab, button: AnyView(addButton))
-                if selectedTab == "house" {
+        NavigationView {
+            ZStack {
+                ListView()
+                VStack {
                     Spacer()
-                    ListView()
-                        .onAppear {title = "Shop list"}
-                }
-                else if selectedTab == "person" {
-                    ProfileView()
-                        .padding(.top, -23)
-                        .onAppear {title = "Profile"}
-                }
-                else if selectedTab == "gearshape" {
-                    SettingsView()
-                        .padding(.top, -23)
-                        .onAppear {title = "Settings"}
-                    
+                    HStack {
+                        Spacer()
+                        addButton
+                            .padding(.trailing, 30)
+                    }
                 }
             }
-            VStack {
-                Spacer()
-                TabBar(selectedTab: $selectedTab)
-            }
-        }.sheet(isPresented: $addView, content: {AddProductView()})
+        }
+        .sheet(isPresented: $addView, content: {AddProductView()})
         
     }
     private var addButton: some View {
         Button(action: {addView.toggle()}, label: {
             ZStack {
                 Circle()
-                    .fill(.black)
-                    .frame(width: 30, height: 30)
+                    .fill(.blue)
+                    .frame(width: 50, height: 50)
+                    .shadow(color: .blue, radius: 3, x: 1, y: 1)
                 Image(systemName: "plus")
                     .font(.title3)
                     .foregroundColor(.white)
@@ -58,6 +47,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView().environmentObject(ListViewModel())
     }
 }

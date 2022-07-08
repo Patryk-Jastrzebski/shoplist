@@ -26,12 +26,12 @@ class ListViewModel: ObservableObject {
         }
     }
     
-    func addProduct(product_name: String, price_value: Double, quantity_value: String, bought: Bool) {
+    func addProduct(product_name: String, price_value: Double, quantity_value: Int, bought: Bool, shop_name: String, product_category: String) {
         let userID: String? = Auth.auth().currentUser?.uid
         guard let autoId = ref.child(dbPath).child(userID!).childByAutoId().key else {
             return
         }
-        let product = Product(id: autoId, name: product_name, price: price_value, quantity: quantity_value, bought: bought)
+        let product = Product(id: autoId, name: product_name, price: price_value, quantity: quantity_value, bought: bought, shopName: shop_name, category: product_category)
         
         do {
             try ref.child("\(dbPath)/\(userID!)/\(product.id)")

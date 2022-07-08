@@ -5,74 +5,44 @@ struct AddProductView: View {
     @State private var productName: String = ""
     @State private var productPrice: String = ""
     @State private var productQuantity: String = ""
+    @State private var productQuantityValue: Int = 1
     
     @EnvironmentObject private var viewModel: ListViewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
-            VStack {
-                TextField(
-                    "Product name",
-                    text: $productName
-                )
-                    .padding(11)
-                    .background {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(
-                                "" == "" ? Color.black.opacity(0.05) : Color(.gray).opacity(0.2)
-                            )
-                    }.textInputAutocapitalization(.never)
-                    .padding()
-                HStack {
+            Form {
+                Section(header: Text("nazwa produktu")) {
+                    
                     TextField(
-                        "Price                PLN",
+                        "Podaj nazwę",
+                        text: $productName
+                    )
+                }
+                Section(header: Text("cena")) {
+                    
+                    TextField(
+                        "Podaj cenę",
                         text: $productPrice
                     )
-                        .keyboardType(.decimalPad)
-                        .padding(11)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(
-                                    "" == "" ? Color.black.opacity(0.05) : Color(.gray).opacity(0.2)
-                                )
-                        }.textInputAutocapitalization(.never)
-                    
-                        .padding(.leading, 15)
-                    
-                    TextField(
-                        "Quantity",
-                        text: $productQuantity
-                    )
-                        .padding(11)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(
-                                    "" == "" ? Color.black.opacity(0.05) : Color(.gray).opacity(0.2)
-                                )
-                        }.textInputAutocapitalization(.never)
-                        .padding(.trailing, 15)
-                    
                 }
+                Section(header: Text("ilość")) {
+                    Stepper(
+                        String(productQuantityValue),
+                    value: $productQuantityValue,
+                    in: 0...20,
+                    step: 1
+                    )
+                }
+                
                 Button(action: {
-                    viewModel.addProduct(product_name: productName, price_value: Double(productPrice) ?? 0.0, quantity_value: productQuantity, bought: false)
+                    viewModel.addProduct(product_name: productName, price_value: Double(productPrice) ?? 0.0, quantity_value: productQuantityValue, bought: false, shop_name: "", product_category: "")
                     dismiss()
                 }, label: {
-                    HStack{
-                        //Image(systemName: "plus")
-                        Text("Add 🛒")
-                    }
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color("yellow"))
-                    .cornerRadius(10)
-                    .padding()
-                    .shadow(color: Color("yellow"), radius: 7, x: 2, y: 2)
-                    
+                    Text("Dodaj")
                 })
-                .navigationBarTitle("Add something  ✏️")
-                Spacer()
+                .navigationBarTitle("Nowy produkt")
             }
         }
     }
